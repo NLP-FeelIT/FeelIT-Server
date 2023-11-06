@@ -1,6 +1,7 @@
 HELP.md
 .gradle
 build/
+resources/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
 !**/src/test/**/build/
@@ -35,4 +36,4 @@ out/
 
 ### VS Code ###
 .vscode/
-resources/application.properties
+
