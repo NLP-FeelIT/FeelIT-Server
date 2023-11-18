@@ -18,7 +18,6 @@ public class AppController {
     public ApiResponse<AiResponse.AiDto> textAnalyze(
             @RequestBody String inputText
     ) {
-        appService.getResults(inputText);
-        return ApiResponse.success(ResponseConverter.toAiDTO(appService.getResults(inputText)));
+        return ApiResponse.success(appService.sampleResults(inputText));
     }
 }

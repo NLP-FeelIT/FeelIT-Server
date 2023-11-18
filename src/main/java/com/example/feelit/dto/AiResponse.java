@@ -1,9 +1,6 @@
 package com.example.feelit.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 public class AiResponse { //AI 응답 양식 지정
 
@@ -12,6 +9,7 @@ public class AiResponse { //AI 응답 양식 지정
     @NoArgsConstructor
     @AllArgsConstructor
     public static class AiDto{
+        String inputText;
         String analysisResult;
     }
 }
