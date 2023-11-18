@@ -10,6 +10,12 @@ public class AiResponse { //AI 응답 양식 지정
     @AllArgsConstructor
     public static class AiDto{
         String inputText;
-        String analysisResult;
+        double fear;
+        double surprised;
+        double anger;
+        double sad;
+        double neutral;
+        double happy;
+        double disgust;
     }
 }

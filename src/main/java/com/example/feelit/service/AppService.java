@@ -2,6 +2,7 @@ package com.example.feelit.service;
 
 import com.example.feelit.converter.ResponseConverter;
 import com.example.feelit.dto.AiResponse;
+import com.example.feelit.dto.RequestDto;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -29,8 +30,8 @@ public class AppService {
         return null;
     }
 
-    public AiResponse.AiDto sampleResults(String inputText) {
-        return ResponseConverter.toAiDTO(inputText, "공포: 10%, 놀람: 10%, 분노: 10%, 슬픔: 30%, 중립: 10%, 행복: 15%, 혐오: 15%");
+    public AiResponse.AiDto sampleResults(RequestDto requestDto) {
+        return ResponseConverter.toAiDTO(requestDto.getInputText());
     }
 
 }
