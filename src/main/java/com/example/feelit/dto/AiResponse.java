@@ -1,8 +1,9 @@
 package com.example.feelit.dto;
 
 import lombok.*;
-
+@Getter
 public class AiResponse { //AI 응답 양식 지정
+    private AiDto data;
 
     @Builder
     @Getter

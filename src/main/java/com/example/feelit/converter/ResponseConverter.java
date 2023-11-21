@@ -1,19 +1,20 @@
 package com.example.feelit.converter;
 
 import com.example.feelit.dto.AiResponse;
+import com.example.feelit.dto.FlaskResponse;
 
 public class ResponseConverter {
 
-    public static AiResponse.AiDto toAiDTO(String inputText){
+    public static AiResponse.AiDto toAiDTO(FlaskResponse response){
         return AiResponse.AiDto.builder()
-                .inputText(inputText)
-                .fear(0.1)
-                .surprised(0.2)
-                .anger(0.15)
-                .sad(0.05)
-                .neutral(0.2)
-                .happy(0.1)
-                .disgust(0.2)
+                .inputText(response.getInputText())
+                .fear(response.getFear())
+                .surprised(response.getSurprised())
+                .anger(response.getAnger())
+                .sad(response.getSad())
+                .neutral(response.getNeutral())
+                .happy(response.getHappy())
+                .disgust(response.getDisgust())
                 .build();
     }
 }

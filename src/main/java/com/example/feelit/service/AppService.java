@@ -2,36 +2,33 @@ package com.example.feelit.service;
 
 import com.example.feelit.converter.ResponseConverter;
 import com.example.feelit.dto.AiResponse;
+import com.example.feelit.dto.FlaskResponse;
+import com.example.feelit.dto.InputModel;
 import com.example.feelit.dto.RequestDto;
+import lombok.RequiredArgsConstructor;
+import org.springframework.boot.web.client.RestTemplateBuilder;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 @Service
 public class AppService {
 
-//    @Value("${model.path}") //서버에 저장된 모델의 경로를 application.properties에서 가져옴
-//    private String modelPath;
-//
-//    private Module module;
-//
-//    @PostConstruct
-//    public void init() {
-//        // 모델 로딩
-//        this.module = Module.load(modelPath);
-//    }
+    private final RestTemplate restTemplate;
 
-    public String getResults(String inputText) {
-        // 입력 텍스트를 모델의 입력 형식에 맞게 변환
-//        Tensor inputTensor = textToTensor(inputText);
-
-        // 모델 실행
-
-
-        // 결과 포맷팅 및 반환
-        return null;
+    public AppService(RestTemplateBuilder restTemplateBuilder) {
+        this.restTemplate = restTemplateBuilder.build();
     }
-
-    public AiResponse.AiDto sampleResults(RequestDto requestDto) {
-        return ResponseConverter.toAiDTO(requestDto.getInputText());
+    public AiResponse.AiDto getResults(RequestDto requestDto) {
+        String url = "http://34.64.212.10:5000/predict";
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        HttpEntity<InputModel> entity = new HttpEntity<>(new InputModel(requestDto.getSentence()), headers);
+        ResponseEntity<FlaskResponse> response = restTemplate.postForEntity(url, entity, FlaskResponse.class);
+        return ResponseConverter.toAiDTO(response.getBody());
     }
 
 }

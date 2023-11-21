@@ -20,10 +20,17 @@ public class AppController {
     public String hello() {
         return "Hello, FeelIt!";
     }
+//    @PostMapping("/analyzeTest") // POST /analyze로 요청이 들어오면 inputText를 받아 분석 결과를 반환
+//    public ApiResponse<AiResponse.AiDto> testAnalyze(
+//            @RequestBody RequestDto requestDto
+//    ) {
+//        return ApiResponse.success(appService.sampleResults(requestDto));
+//    }
+
     @PostMapping("/analyze") // POST /analyze로 요청이 들어오면 inputText를 받아 분석 결과를 반환
     public ApiResponse<AiResponse.AiDto> textAnalyze(
             @RequestBody RequestDto requestDto
     ) {
-        return ApiResponse.success(appService.sampleResults(requestDto));
+        return ApiResponse.success(appService.getResults(requestDto));
     }
 }
