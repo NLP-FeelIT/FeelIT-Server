@@ -1,6 +1,5 @@
 package com.example.feelit.controller;
 
-import com.example.feelit.converter.ResponseConverter;
 import com.example.feelit.dto.AiResponse;
 import com.example.feelit.dto.RequestDto;
 import com.example.feelit.global.ApiResponse;
