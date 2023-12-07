@@ -19,21 +19,26 @@ POST /analyze
 Content-Type: application/json
 
 {
-    "text": "오늘은 정말 행복한 하루였다!"
+    "sentence": "Hello"
 }
 ```
 응답 예시:
 ```
 HTTP/1.1 200 OK
 Content-Type: application/json
-
 {
-    "happy": 0.75,
-    "sad": 0.05,
-    "surprised": 0.10,
-    "anger": 0.03,
-    "fear": 0.02,
-    "disgust": 0.01,
-    "neutral": 0.04
+    "isSuccess": true,
+    "code": "200",
+    "message": "성공",
+    "data": {
+        "inputText": "Hello",
+        "fear": 1.5,
+        "surprised": 5.1,
+        "anger": 0.1,
+        "sad": 3.1,
+        "neutral": 0.6,
+        "happy": 89.3,
+        "disgust": 0.2
+    }
 }
 ```
